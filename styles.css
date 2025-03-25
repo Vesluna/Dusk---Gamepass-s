@@ -8,7 +8,7 @@
     animation: eyeOpen 3s ease-out forwards;
 }
 
-/* Flickering light */
+/* Flickering lights */
 #flickering-light {
     position: fixed;
     top: 50%;
