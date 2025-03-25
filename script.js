@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let size = Math.random() * 6 + 4; // Random size
         let posX = Math.random() * window.innerWidth;
         let posY = Math.random() * window.innerHeight;
-        let duration = Math.random() * 5 + 3; // Random animation speed
+        let duration = Math.random() * 5 + 3; // Random animation speedj
 
         dot.style.width = `${size}px`;
         dot.style.height = `${size}px`;
