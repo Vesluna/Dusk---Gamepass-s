@@ -7,44 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- I want to replace the code for the buy button actions, and make it so it makes a (NOt a new window popup, but like a onscreen UI popup appear with to buttons on it that say "Continue to Site" and a X button on the cornor of the ui popup With text above first a header that says "Wait!" And the smaller text below it "Before you do this, are you sure? This popup ui is designed incase this site could be a fake version of its origianl, if you still want to continue, you may." and when pressed it will take them to the site and close the onscreen ui popup, or when they click the x button it will close on onscreen popup_ -->
+
     <div class="circle-container">
-        <div class="circle-wrapper"> <!-- name of gamepass is Light Daggers+ -->
-            <div class="circle"> 
-                <img class="profile-pic" src="" alt="Profile Picture"> <!-- Each circle must have its own profile image -->
+        <!-- Light Daggers+ Gamepass -->
+        <div class="circle-wrapper">
+            <div class="circle">
+                <img class="profile-pic" src="" alt="Profile Picture">
                 <div class="placeholder">?</div>
             </div>
             <div class="buttons">
-                <a href="#" class="primary">Buy Now</a>
+                <a href="https://your-gamepass-link.com" class="primary">Buy Now</a>
                 <a href="#" class="alt">Alternative Payment</a>
             </div>
         </div>
 
+        <!-- Better Flashlight Gamepass -->
+        <div class="circle-wrapper">
+            <div class="circle">
+                <img class="profile-pic" src="" alt="Profile Picture">
+                <div class="placeholder">?</div>
+            </div>
+            <div class="buttons">
+                <a href="https://your-gamepass-link.com" class="primary">Buy Now</a>
+                <a href="#" class="alt">Alternative Payment</a>
+            </div>
+        </div>
     </div>
 
-    <div class="circle-container">
-        <div class="circle-wrapper"><!--Name of gamepass is better flashlight-->
-            <div class="circle">
-                <img class="profile-pic" src="" alt="Profile Picture"> <!-- Each circle must have its own profile image -->
-                <div class="placeholder">?</div>
-            </div>
-            <div class="buttons">
-                <a href="#" class="primary">Buy Now</a>
-                <a href="#" class="alt">Alternative Payment</a>
-            </div>
-        </div>
+    <!-- Floating Dots -->
+    <div class="dots-container">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
 
-   </div>
+    <!-- On-screen Popup (Hidden by Default) -->
+    <div id="popup-overlay" class="popup-overlay hidden">
+        <div class="popup">
+            <h2>Wait!</h2>
+            <p>Before you do this, are you sure? This popup UI is designed in case this site could be a fake version of its original. If you still want to continue, you may.</p>
+            <button id="continue-btn">Continue to Site</button>
+            <button id="close-btn">X</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
-
-<div class="dots-container">
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-</div>
 
 </body>
 </html>
