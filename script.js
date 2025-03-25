@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const buttons = circle.querySelector('.buttons');
         const links = buttons.querySelectorAll("a");
 
-        // Assign unique images per circle (First one is updated)
+        // Assign unique images per circle (keeping original design!)
         const imageLinks = [
-            "https://i.postimg.cc/L5FFVPg4/Light-daggers-gamepass.webp", 
-            "https://i.postimg.cc/rsZCk1GM/Better-flashlight-gamepass.webp"
+            "https://i.postimg.cc/L5FFVPg4/Light-daggers-gamepass.webp",  // Light Daggers+
+            "https://i.postimg.cc/rsZCk1GM/Better-flashlight-gamepass.webp"  // Better Flashlight
         ];
 
         if (index < imageLinks.length) {
@@ -34,15 +34,15 @@ document.addEventListener("DOMContentLoaded", function() {
         img.dispatchEvent(new Event('load'));
     });
 
-    // Buy Button Popup Logic
+    // Buy Button Popup (WITHOUT messing up the original layout)
     document.querySelectorAll(".primary").forEach(button => {
         button.addEventListener("click", function(event) {
             event.preventDefault();
-            showPopup();
+            showPopup(event.target.closest('.buttons').querySelector('a').href);
         });
     });
 
-    function showPopup() {
+    function showPopup(link) {
         const popup = document.createElement("div");
         popup.classList.add("popup-overlay");
         popup.innerHTML = `
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Continue to site
         document.getElementById("continue-btn").addEventListener("click", function() {
-            window.location.href = "https://your-gamepass-site.com"; // Replace with the actual URL
+            window.location.href = link; 
             document.body.removeChild(popup);
         });
     }
