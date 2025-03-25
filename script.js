@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     canvas.height = window.innerHeight;
 
     let particles = [];
-    
+
     class Particle {
         constructor() {
             this.x = Math.random() * canvas.width;
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function initParticles() {
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < 70; i++) {
             particles.push(new Particle());
         }
     }
