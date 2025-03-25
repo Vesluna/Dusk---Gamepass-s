@@ -10,10 +10,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // Assign unique images per circle (First one is updated)
         const imageLinks = [
             "https://i.postimg.cc/L5FFVPg4/Light-daggers-gamepass.webp", 
-            "https://i.postimg.cc/rsZCk1GM/Better-flashlight-gamepass.webp"  
+            "https://i.postimg.cc/rsZCk1GM/Better-flashlight-gamepass.webp"
         ];
 
-        img.src = imageLinks[index % imageLinks.length]; 
+        if (index < imageLinks.length) {
+            img.src = imageLinks[index]; 
+        }
 
         img.addEventListener('load', function() {
             if (img.src && img.src !== "" && img.src !== window.location.href) {
@@ -31,4 +33,38 @@ document.addEventListener("DOMContentLoaded", function() {
 
         img.dispatchEvent(new Event('load'));
     });
+
+    // Buy Button Popup Logic
+    document.querySelectorAll(".primary").forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            showPopup();
+        });
+    });
+
+    function showPopup() {
+        const popup = document.createElement("div");
+        popup.classList.add("popup-overlay");
+        popup.innerHTML = `
+            <div class="popup">
+                <h2>Wait!</h2>
+                <p>Before you do this, are you sure? This popup UI is designed in case this site could be a fake version of its original. If you still want to continue, you may.</p>
+                <button id="continue-btn">Continue to Site</button>
+                <button id="close-btn">X</button>
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+
+        // Close the popup
+        document.getElementById("close-btn").addEventListener("click", function() {
+            document.body.removeChild(popup);
+        });
+
+        // Continue to site
+        document.getElementById("continue-btn").addEventListener("click", function() {
+            window.location.href = "https://your-gamepass-site.com"; // Replace with the actual URL
+            document.body.removeChild(popup);
+        });
+    }
 });
