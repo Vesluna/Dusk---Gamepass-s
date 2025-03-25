@@ -1,7 +1,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background: linear-gradient(to bottom, #000, #333, #aaa);
+    background: linear-gradient(to bottom, #000, #222, #777);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -9,36 +9,20 @@ body {
     position: relative;
 }
 
-/* Flickering light effect */
-.flickering-light {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255,255,204,0.2) 0%, rgba(0,0,0,0) 80%);
-    transform: translate(-50%, -50%);
-    animation: flicker 1.5s infinite alternate;
-}
-
-@keyframes flicker {
-    0% { opacity: 0.6; }
-    50% { opacity: 0.4; }
-    100% { opacity: 0.7; }
-}
-
-/* Distortion effect (Subtle wave-like motion) */
+/* Enhanced distortion effect (time-ripple waves) */
 body::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.1);
-    animation: distort 5s infinite linear;
+    background: rgba(0, 0, 0, 0.07);
+    animation: distort 6s infinite ease-in-out;
+    mix-blend-mode: overlay;
 }
 
 @keyframes distort {
-    0% { transform: skewY(0deg); }
-    50% { transform: skewY(2deg); }
-    100% { transform: skewY(0deg); }
+    0% { transform: skewY(0deg) scale(1); filter: blur(2px); }
+    30% { transform: skewY(2deg) scale(1.02); filter: blur(4px); }
+    70% { transform: skewY(-2deg) scale(1.01); filter: blur(3px); }
+    100% { transform: skewY(0deg) scale(1); filter: blur(2px); }
 }
