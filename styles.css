@@ -1,93 +1,13 @@
+/* Background Effect */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #0f172a, #1e3a8a); /* Kept the horror aesthetic */
-    overflow: hidden;
+    background: linear-gradient(to right, #0f172a, #1e3a8a); /* Dark horror gradient */
+    overflow: hidden; /* Prevent scroll issues */
 }
 
-/* Keep original layout */
-.circle-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
-}
-
-.circle-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.circle {
-    width: 100px;
-    height: 100px;
-    background-color: #444;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.circle img {
-    display: none;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-}
-
-.placeholder {
-    width: 50px;
-    height: 50px;
-    background-color: #666;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    color: #ddd;
-    border-radius: 50%;
-}
-
-/* Buttons */
-.buttons {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    visibility: hidden;
-}
-
-.buttons a {
-    display: block;
-    width: 85px;
-    margin: 5px 0;
-    padding: 5px;
-    text-align: center;
-    color: white;
-    text-decoration: none;
-    font-size: 12px;
-    border-radius: 5px;
-    transition: background 0.3s ease-in-out;
-}
-
-/* Different Button Colors */
-.buttons a.primary {
-    background-color: #e63946; /* Red */
-}
-
-.buttons a.alt {
-    background-color: black;
-}
-
-/* Hover Effect */
-.buttons a:hover {
-    opacity: 0.8;
-}
-
-/* Floating dots (Original Effect Kept) */
+/* Floating Dots Animation */
 @keyframes floatingDots {
     0% { transform: translateY(0); opacity: 1; }
     50% { opacity: 0.6; }
@@ -112,60 +32,10 @@ body {
     animation: floatingDots 3s infinite alternate ease-in-out;
 }
 
+/* Random Placement of Dots */
 .dot:nth-child(1) { top: 10%; left: 20%; animation-duration: 4s; }
 .dot:nth-child(2) { top: 30%; left: 80%; animation-duration: 3s; }
 .dot:nth-child(3) { top: 50%; left: 50%; animation-duration: 5s; }
 .dot:nth-child(4) { top: 70%; left: 30%; animation-duration: 6s; }
 .dot:nth-child(5) { top: 90%; left: 70%; animation-duration: 4.5s; }
 
-/* Popup UI */
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.popup {
-    background: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    width: 300px;
-}
-
-.popup h2 {
-    color: red;
-    margin-bottom: 10px;
-}
-
-.popup p {
-    font-size: 14px;
-    color: black;
-    margin-bottom: 20px;
-}
-
-#continue-btn {
-    background: #e63946;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
-#close-btn {
-    background: black;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-}
