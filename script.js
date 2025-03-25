@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const canvas = document.getElementById("particleCanvas");
     const ctx = canvas.getContext("2d");
+    const bgMusic = document.getElementById("bg-music");
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -54,8 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
         initParticles();
     });
 
-    // Play background music
-    const bgMusic = document.getElementById("bg-music");
-    bgMusic.volume = 0.3;
-    bgMusic.play();
+    // Trigger music on first user interaction
+    function startAudio() {
+        bgMusic.volume = 0.3;
+        bgMusic.play().catch((e) => console.log("Playback failed: ", e));
+        // Remove the event listener after first click
+        document.removeEventListener("click", startAudio);
+    }
+    document.addEventListener("click", startAudio);
 });
